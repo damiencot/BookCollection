@@ -13,7 +13,7 @@
     <string name="add_book_page_title">Add book</string>
     <string name="add_book_page_upload_button">Upload Picture</string>
     <string name="add_book_page_name_input">@string/item_book_name</string>
-    <string name="add_book_page_description_input">@string/item_book_description</string>
+    <string name="add_book_page_author_input">@string/item_book_author</string>
 
 
     <string-array name="add_book_page_genres_spinner_input">
@@ -30,22 +30,22 @@
 
     <string-array name="add_book_page_difficulty_spinner_input">
         <item>low</item>
-        <item>Medium</item>
-        <item>High</item>
+        <item>medium</item>
+        <item>hard</item>
     </string-array>
 
 
     <!-- Popup details window -->
     <string name="popup_book_name">Name of book</string>
-    <string name="popup_book_description_title">Description</string>
-    <string name="popup_book_description_subtitle">Little Description</string>
-    <string name="popup_book_type_title">Genres</string>
-    <string name="popup_book_type_subtitle">History</string>
-    <string name="popup_book_water_title">Difficulty</string>
-    <string name="popup_book_water_subtitle">low</string>
+    <string name="popup_book_author_title">Author</string>
+    <string name="popup_book_author_subtitle">Little Author</string>
+    <string name="popup_book_genres_title">Genres</string>
+    <string name="popup_book_genres_subtitle">History</string>
+    <string name="popup_book_difficulty_title">Difficulty</string>
+    <string name="popup_book_difficulty_subtitle">low</string>
 
     <!-- book customise -->
     <string name="item_book_name">Name of book</string>
-    <string name="item_book_description">Description of book</string>
+    <string name="item_book_author">Author of book</string>
 
 </resources>
