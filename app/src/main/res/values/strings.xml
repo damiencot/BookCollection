@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Book Collection</string>
+
+    <!-- Home Page -->
+    <string name="home_page_title">To discover</string>
+    <string name="home_page_last_book_section">Last book</string>
+
+    <!-- Collection Page -->
+    <string name="collection_page_title">My Collection</string>
+
+
+    <!-- book Adding Page -->
+    <string name="add_book_page_title">Add book</string>
+    <string name="add_book_page_upload_button">Upload Picture</string>
+    <string name="add_book_page_name_input">@string/item_book_name</string>
+    <string name="add_book_page_description_input">@string/item_book_description</string>
+
+
+    <string-array name="add_book_page_genres_spinner_input">
+        <item>Romance</item>
+        <item>Biography</item>
+        <item>Education</item>
+        <item>Horror</item>
+        <item>History</item>
+        <item>Action and adventure</item>
+        <item>Fantasy</item>
+        <item>Science fiction</item>
+        <item>Thriller</item>
+    </string-array>
+
+    <string-array name="add_book_page_difficulty_spinner_input">
+        <item>low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+
+    <!-- Popup details window -->
+    <string name="popup_book_name">Name of book</string>
+    <string name="popup_book_description_title">Description</string>
+    <string name="popup_book_description_subtitle">Little Description</string>
+    <string name="popup_book_type_title">Genres</string>
+    <string name="popup_book_type_subtitle">History</string>
+    <string name="popup_book_water_title">Difficulty</string>
+    <string name="popup_book_water_subtitle">low</string>
+
+    <!-- book customise -->
+    <string name="item_book_name">Name of book</string>
+    <string name="item_book_description">Description of book</string>
+
+</resources>
