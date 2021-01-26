@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_separation" />
 
     <ImageView
-        android:id="@+id/unlike_icon"
+        android:id="@+id/like_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:src="@drawable/ic_unlike"
