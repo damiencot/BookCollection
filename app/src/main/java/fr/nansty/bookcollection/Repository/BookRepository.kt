@@ -1,17 +1,32 @@
 package fr.nansty.bookcollection.Repository
 
+import android.net.Uri
+import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.UploadTask
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.bookList
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.databaseRef
+import fr.nansty.bookcollection.Repository.BookRepository.Singleton.storageReference
 import fr.nansty.bookcollection.model.BookModel
+import java.net.URI
+import java.util.*
 import javax.security.auth.callback.Callback
 
 class BookRepository {
 
     object Singleton{
+
+        //donner le lien du bucket
+        private val BUCKET_URL: String = "gs://bookcollection-e23b7.appspot.com"
+
+        //Se connecter a notre espace de stockage
+        val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(BUCKET_URL)
+
         //Se connecter à la réference "books"
         val databaseRef = FirebaseDatabase.getInstance().getReference("books")
 
@@ -47,6 +62,36 @@ class BookRepository {
             }
 
         })
+    }
+
+    //créer une fonction pour envoyer des fichiers sur le storage
+    fun uploadImage(file: Uri){
+        //verifier que ce fichier n'est pas null
+        if (file != null){
+            //identifiant au hasard format texte + format
+            val fileName = UUID.randomUUID().toString() + ".jpg"
+            //a quel endroit de la bdd
+            val ref = storageReference.child(fileName)
+            //envoyer le fichier dans une tache d'envoie
+            val uploadTask = ref.putFile(file)
+
+
+            //demarrer la tache d'envoie
+            uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+
+                //si il y a eu un probleme lors de l'envoie du fichier
+                if (!task.isSuccessful){
+                    task.exception?.let { throw it }
+                }
+                return@Continuation ref.downloadUrl
+            }).addOnCompleteListener { task ->
+                //verifier si tout a bien fonctionné
+                if (task.isSuccessful){
+                    //recuperer l'image
+                    val downloadURI = task.result
+                }
+            }
+        }
     }
 
     //mettre a jour un objet livre en bdd
