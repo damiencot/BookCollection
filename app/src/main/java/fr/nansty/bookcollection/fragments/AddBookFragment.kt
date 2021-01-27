@@ -5,13 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import androidx.fragment.app.Fragment
 import fr.nansty.bookcollection.MainActivity
 import fr.nansty.bookcollection.R
@@ -23,6 +21,7 @@ import java.util.*
 class AddBookFragment(private val context: MainActivity) : Fragment(){
 
 
+    private var downloadImageUrl: Uri? = null
     private var uploadedImage: ImageView? = null
     private var file: Uri? = null
 
@@ -54,7 +53,14 @@ class AddBookFragment(private val context: MainActivity) : Fragment(){
             val bookAuthor = view.findViewById<EditText>(R.id.author_input).text.toString()
             val bookGenres = view.findViewById<Spinner>(R.id.genres_spinner).selectedItem.toString()
             val bookDifficulty = view.findViewById<Spinner>(R.id.difficulty_spinner).selectedItem.toString()
-            val downloadImageUrl = downloadUri
+
+//            if (Uri.EMPTY != downloadUri) {
+//                downloadImageUrl = downloadUri
+//            }else{
+//                Toast.makeText(activity)
+//            }
+
+
 
             //creer un nouvel objet BookModel
             val book = BookModel(
@@ -67,6 +73,7 @@ class AddBookFragment(private val context: MainActivity) : Fragment(){
             )
             //envoye en bdd
             repo.insertBook(book)
+
         }
     }
 

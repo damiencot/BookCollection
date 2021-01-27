@@ -23,13 +23,13 @@
 
     <string-array name="add_book_page_genres_spinner_input">
         <item>Genres: Romance</item>
-        <item>Genres:Biography</item>
-        <item>Genres:Education</item>
-        <item>Genres:Horror</item>
-        <item>Genres:History</item>
-        <item>Genres:Action and adventure</item>
-        <item>Genres:Fantasy</item>
-        <item>Genres:Science fiction</item>
+        <item>Genres: Biography</item>
+        <item>Genres: Education</item>
+        <item>Genres: Horror</item>
+        <item>Genres: History</item>
+        <item>Genres: Action and adventure</item>
+        <item>Genres: Fantasy</item>
+        <item>Genres: Science fiction</item>
         <item>Genres: Thriller</item>
     </string-array>
 

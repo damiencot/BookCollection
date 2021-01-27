@@ -1,18 +1,20 @@
 package fr.nansty.bookcollection.Repository
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.bookList
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.databaseRef
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.downloadUri
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.storageReference
+import fr.nansty.bookcollection.fragments.HomeFragment
 import fr.nansty.bookcollection.model.BookModel
 import java.net.URI
 import java.util.*
@@ -106,7 +108,12 @@ class BookRepository {
 
     //inserer un objet livre en bdd
     fun insertBook(book: BookModel) {
-        databaseRef.child(book.id).setValue(book)
+        databaseRef.child(book.id).setValue(book).addOnCompleteListener {
+            if (it.isSuccessful){
+
+            }
+        }
+
     }
 
     fun deleteBook(book: BookModel){

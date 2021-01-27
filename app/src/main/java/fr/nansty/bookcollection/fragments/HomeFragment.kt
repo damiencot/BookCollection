@@ -19,8 +19,8 @@ class HomeFragment(private val context: MainActivity) : Fragment(){
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         //recuperer le recyclerview
-        val horizontalRecyclerView = view.findViewById<RecyclerView>(R.id.horizontal_recyclerView)
-        horizontalRecyclerView.adapter = BookAdapter(context, bookList.filter { !it.liked }, R.layout.item_horizontal_book)
+        //val horizontalRecyclerView = view.findViewById<RecyclerView>(R.id.horizontal_recyclerView)
+        //horizontalRecyclerView.adapter = BookAdapter(context, bookList.filter { !it.liked }, R.layout.item_horizontal_book)
 
         //recupere le second recyclerView
         val verticalRecyclerView = view.findViewById<RecyclerView>(R.id.vertical_recyclerView)

@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun loadFragment(fragment: Fragment, string: Int) {
         //charger notre repository
         val repo = BookRepository()
