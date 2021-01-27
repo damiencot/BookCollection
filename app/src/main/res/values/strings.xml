@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Book Collection</string>
 
+    <!-- Menu -->
+    <string name="bottom_home_item">Home</string>
+    <string name="bottom_collection_item">Collection</string>
+    <string name="bottom_add_item">Add</string>
+
     <!-- Home Page -->
     <string name="home_page_title">To discover</string>
     <string name="home_page_last_book_section">Last book</string>

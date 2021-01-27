@@ -36,5 +36,17 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    <!-- Customize font Menu -->
+    <style name="BottomNavigationStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/kanit</item>
+    </style>
 
+    <!-- Customize Style Menu -->
+    <style name="BottomNavigationTheme" parent="Widget.Design.BottomNavigationView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/kanit</item>
+    </style>
+
+    <color name="darkGray">#000000</color>
 </resources>
