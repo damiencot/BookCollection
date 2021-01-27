@@ -11,6 +11,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.bookList
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.databaseRef
+import fr.nansty.bookcollection.Repository.BookRepository.Singleton.downloadUri
 import fr.nansty.bookcollection.Repository.BookRepository.Singleton.storageReference
 import fr.nansty.bookcollection.model.BookModel
 import java.net.URI
@@ -32,6 +33,9 @@ class BookRepository {
 
         //créer une liste qui va contenir nos livres
         val bookList = arrayListOf<BookModel>()
+
+        // contenir le lien de l'image courante
+        var downloadUri:Uri? = null
     }
 
     fun updateData(callback: () -> Unit){
@@ -65,7 +69,7 @@ class BookRepository {
     }
 
     //créer une fonction pour envoyer des fichiers sur le storage
-    fun uploadImage(file: Uri){
+    fun uploadImage(file: Uri, callback: () -> Unit){
         //verifier que ce fichier n'est pas null
         if (file != null){
             //identifiant au hasard format texte + format
@@ -88,7 +92,8 @@ class BookRepository {
                 //verifier si tout a bien fonctionné
                 if (task.isSuccessful){
                     //recuperer l'image
-                    val downloadURI = task.result
+                    downloadUri = task.result
+                    callback()
                 }
             }
         }
@@ -96,6 +101,11 @@ class BookRepository {
 
     //mettre a jour un objet livre en bdd
     fun updateBook(book: BookModel) {
+        databaseRef.child(book.id).setValue(book)
+    }
+
+    //inserer un objet livre en bdd
+    fun insertBook(book: BookModel) {
         databaseRef.child(book.id).setValue(book)
     }
 
